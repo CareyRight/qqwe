@@ -29,6 +29,9 @@ eureka:
     service-url: 
       defaultZone: http://eureka2:2002/eureka
 
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}       
+
 ---
 spring:
   profiles: eureka2
@@ -43,4 +46,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka
+
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}       
     
